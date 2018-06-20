@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProyectoAsadero.Models.Table>
+
+@{
+    ViewBag.Title = "Lista de mesas";
+}
+
+<h2>Lista de mesas</h2>
+
+<p>
+    @Html.ActionLink("Agregar nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.TableId }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.TableId }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.TableId })
+        </td>
+    </tr>
+}
+
+</table>
